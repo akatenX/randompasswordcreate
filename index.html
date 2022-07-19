@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+  <meta charset="utf-8">
+  <title>パスワード生成</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<style>
+  .main {
+    margin: 0 auto;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+  }
+</style>
+<script>
+
+  const hoge = () => {
+
+    // ランダムで選ばれる文字
+    let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    // タイマーの設定
+    const write = setInterval(() => {
+      // str からランダムに一文字生成して10文字になれば終了
+      (result.innerHTML.length < 10) ? result.innerHTML += str[~~(Math.random() * str.length)] : clearInterval(write);
+    }, 100); // 0.1秒ごとに実行
+  }
+
+  window.onload = () => {
+    // クリックイベントを登録
+    btn.onclick = () => { hoge(); }; // document.getElementById('btn');を省略
+  }
+
+</script>
+
+<body>
+  <div class="main container">
+
+    <h2><span id="result" class="badge bg-primary"></span></h2>
+
+    <div class="row">
+      <button id="btn" type="button" class="btn btn-warning">
+        実行
+      </button>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
