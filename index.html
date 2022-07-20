@@ -32,6 +32,32 @@
     }, 100); // 0.1秒ごとに実行
   }
 
+
+  function copy_2() {
+
+
+  //h2要素の文字列を取得
+  var text = document.getElementById("result").innerText;
+
+  //textareaを生成
+  var area = document.createElement("textarea");
+
+  //p要素の内容をtextareaに記述
+  area.textContent = text;
+
+  //生成したものをdocumentに追加
+  document.body.appendChild(area);
+
+  //選択/コピーして・・
+  area.select();
+  document.execCommand("copy");
+
+  //すぐに消す。
+  document.body.removeChild(area);
+
+  }
+
+
   window.onload = () => {
     // クリックイベントを登録
     btn.onclick = () => { hoge(); }; // document.getElementById('btn');を省略
